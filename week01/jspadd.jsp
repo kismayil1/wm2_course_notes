@@ -1,4 +1,4 @@
-<%@ page errorPage="errorPage.jsp" %>
+
 
 <html>
   <head>
@@ -8,7 +8,7 @@
   <body>
     <h1>Welcome to JSP!</h1>
     <%
-		int x = 3;	int y = 0; int z = x+y;
+		int x = 3;	int y = 2; int z = x+y;
 		
 		out.print(x + " + " + y + " = " + z);
 	
