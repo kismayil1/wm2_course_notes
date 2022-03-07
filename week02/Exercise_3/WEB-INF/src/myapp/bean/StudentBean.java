@@ -5,16 +5,16 @@ public class StudentBean {
     private String Name;
     private String Surname;
 
-    public String getSurname() {
-        return Surname;
-    }
-
     public int getID() {
         return ID;
     }
 
-    public void setID(int iD) {
-        this.ID = iD;
+    public String getSurname() {
+        return Surname;
+    }
+
+    public void setSurname(String surname) {
+        this.Surname = surname;
     }
 
     public String getName() {
@@ -25,7 +25,7 @@ public class StudentBean {
         this.Name = name;
     }
 
-    public void setSurname(String surname) {
-        this.Surname = surname;
+    public void setID(int iD) {
+        this.ID = iD;
     }
 }

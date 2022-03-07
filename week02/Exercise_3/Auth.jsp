@@ -1,10 +1,7 @@
 <%@ page import = "myapp.bean.StudentBean" %> 
-<% 
 
-StudentBean st = (StudentBean) session.getAttribute("loginBean");
+<jsp:useBean id="ate" scope="session" class="myapp.bean.StudentBean"> </jsp:useBean>
 
-%>
 
-Hello, <% out.print(st.getName());
-out.print(" ");
-out.print(st.getSurname()); %>
+<jsp:getProperty  name="ate" property="name"/>
+<jsp:getProperty name="ate" property="surname"/>
