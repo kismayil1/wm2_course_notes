@@ -1,33 +1,34 @@
 package az.edu.ada.wm2.first_spring_boot_app.controller;
 
-import az.edu.ada.wm2.first_spring_boot_app.bean.StudentBean;
+import az.edu.ada.wm2.first_spring_boot_app.entity.Course;
 import az.edu.ada.wm2.first_spring_boot_app.entity.Student;
+import az.edu.ada.wm2.first_spring_boot_app.service.CourseService;
 import az.edu.ada.wm2.first_spring_boot_app.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/student")
-public class StudentController {
+@RequestMapping("/course")
+public class CourseController {
 
     @Autowired
-    private StudentService studentService;
+    private CourseService courseService;
 
     @GetMapping("/list")
-    public String getStudents(Model model) {
+    public String getCourses(Model model, @RequestParam String school) {
 
-        model.addAttribute("school", "SITE");
+        model.addAttribute("school", school);
 
-        List<Student> students = studentService.getStudentList();
+        List<Course> courses = courseService.getCourseList();
 
-        model.addAttribute("students", students);
+        model.addAttribute("courses", courses);
 
-        return "student_list";
+        return "course_list";
     }
 }
