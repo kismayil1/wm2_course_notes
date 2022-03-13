@@ -17,14 +17,30 @@ public class MainServlet extends HttpServlet{
 		users.add("Sveta");
 	}
 
+
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
+		
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		
+		if("admin".equals(username) && "admin".equals(password)){
+
+			HttpSession session = req.getSession();
+			session.setAttribute("current_user", username);
+			session.setAttribute("user_list", users);
+		
 		try{
-		PrintWriter pw = res.getWriter();
+			RequestDispatcher disp = req.getRequestDispatcher("user.jsp");
+			disp.forward(req,res);
+	}catch(Exception ex){  
+		System.out.println("Forward failed: " + ex);
+	}
+	}
+	else{
 
-		pw.write("<html><body>Welcome!</body></html>");
-	}catch(IOException ex){  
-		System.out.println(ex);
-	}
-	}
+		try{
+			res.sendRedirect("index.html");
+		}catch(Exception ex){
+			System.out.println("Redirect failed: " + ex);
+		}		
 }
-

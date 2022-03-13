@@ -13,8 +13,8 @@ import java.sql.SQLException;
 public class App {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/wm2_db";
-    private static final String USERNAME = "nsadili";
-    private static final String PASSWORD = "12345678";
+    private static final String USERNAME = "Mysql@localhost:3306";
+    private static final String PASSWORD = "ilahe8116861";
 
     public static void main(String[] args) {
         try {
