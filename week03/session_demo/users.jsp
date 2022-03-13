@@ -11,6 +11,10 @@
 
 	List<String> users = (List)session.getAttribute("user_list");
 
+		for(STring user : users){
+			out.println(user);
+		}
+
 
 	%>
 
