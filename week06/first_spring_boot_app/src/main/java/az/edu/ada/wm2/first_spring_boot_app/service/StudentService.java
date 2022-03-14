@@ -6,12 +6,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    public Student getById(Integer id) {
+        Optional<Student> stud = studentRepository.findById(id);
+
+        if (stud.isPresent())
+            return stud.get();
+
+        return new Student("No Student", "Found");
+    }
+
+    public Student getStudentByNamesAnd(String firstName, String lastName) {
+        Optional<Student> stud = studentRepository.findByFirstNameAndLastName(firstName, lastName);
+
+        if (stud.isPresent())
+            return stud.get();
+
+        return new Student("No Student", "Found");
+    }
+
+    public List<Student> getStudentByNamesOr(String firstName, String lastName) {
+        List<Student> students = (List<Student>) studentRepository.findByFirstNameOrLastName(firstName, lastName);
+        return students;
+    }
 
     public List<Student> getStudentList() {
         List<Student> students = (List<Student>) studentRepository.findAll();

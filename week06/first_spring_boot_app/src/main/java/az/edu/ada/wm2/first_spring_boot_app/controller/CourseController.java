@@ -20,7 +20,7 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @GetMapping("/list")
+    @GetMapping("/")
     public String getCourses(Model model, @RequestParam String school) {
 
         model.addAttribute("school", school);
@@ -28,6 +28,13 @@ public class CourseController {
         List<Course> courses = courseService.getCourseList();
 
         model.addAttribute("courses", courses);
+
+        return "course_list";
+    }
+
+    @GetMapping("/web")
+    public String getWebCourses(Model model){
+        model.addAttribute("courses", courseService.getAllWebCourses());
 
         return "course_list";
     }

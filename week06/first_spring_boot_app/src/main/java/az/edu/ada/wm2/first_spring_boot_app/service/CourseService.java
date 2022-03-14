@@ -20,4 +20,8 @@ public class CourseService {
 
         return courses;
     }
+
+    public List<Course> getAllWebCourses() {
+        return (List<Course>) courseRepository.getAllWebCourses();
+    }
 }

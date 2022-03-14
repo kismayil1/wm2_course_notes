@@ -22,6 +22,14 @@ public class Student {
     )
     private Set<Course> courses;
 
+    public Student() {
+    }
+
+    public Student(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public int getId() {
         return id;
     }
