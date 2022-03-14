@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+
+Welcome, students of <span th:text="${school}"></span>
+<table>
+    <thead>
+    <tr>
+    <th> Firstname </th>
+    <th> Lastname </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:if="${students.empty}">
+        <td> No data found</td>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td> <span th:text="${student.firstname}"> Name </span> </td>
+        <td> <span th:text="${student.lastname}"> Surname </span> </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

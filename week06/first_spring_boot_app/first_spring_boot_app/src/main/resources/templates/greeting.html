@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="w3.org/1999/xhtml"  xmlns:th="thymeleaf.org">
+
+
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
@@ -7,5 +9,7 @@
 <body>
 
 <h2>Welcome to our first Spring Boot app</h2>
+
+<p th:text = "${message}">Welcome to our website</p>
 </body>
 </html>

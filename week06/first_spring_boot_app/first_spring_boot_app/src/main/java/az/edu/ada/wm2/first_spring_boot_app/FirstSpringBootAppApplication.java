@@ -10,4 +10,5 @@ public class FirstSpringBootAppApplication {
 		SpringApplication.run(FirstSpringBootAppApplication.class, args);
 	}
 
+
 }
