@@ -20,10 +20,8 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("/")
+    @GetMapping("/list")
     public String getStudents(Model model) {
-
-        model.addAttribute("school", "SITE");
 
         List<Student> students = studentService.getStudentList();
 

@@ -8,6 +8,7 @@ import java.util.Set;
 public class Course {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "c_name")
