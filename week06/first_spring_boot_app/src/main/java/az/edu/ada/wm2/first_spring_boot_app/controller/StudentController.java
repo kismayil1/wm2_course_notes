@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -20,6 +21,26 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @GetMapping("/newForm")
+    public String getNewStudentForm(Model model) {
+        model.addAttribute("student", new Student());
+        return "student_form";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String getUpdateStudentForm(Model model, @PathVariable Integer id) {
+        model.addAttribute("student", studentService.getById(id));
+
+        return "student_form";
+    }
+
+    @PostMapping("/save")
+    public String saveStudent(Model model, Student student) {
+        Student updadedStudent = studentService.save(student);
+        model.addAttribute("student", updadedStudent);
+        return "student_info";
+    }
+
     @GetMapping("/list")
     public String getStudents(Model model) {
 
@@ -31,7 +52,7 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public String getStudent(Model model, @PathVariable Integer id){
+    public String getStudent(Model model, @PathVariable Integer id) {
         model.addAttribute("student", studentService.getById(id));
 
         return "student_info";

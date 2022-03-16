@@ -14,6 +14,10 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    public Student save(Student student) {
+        return studentRepository.save(student);
+    }
+
     public Student getById(Integer id) {
         Optional<Student> stud = studentRepository.findById(id);
 

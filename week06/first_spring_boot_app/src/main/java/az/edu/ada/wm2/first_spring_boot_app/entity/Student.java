@@ -15,6 +15,9 @@ public class Student {
 
     private String lastName;
 
+    @Column(name = "school")
+    private String schoolName;
+
     @ManyToMany
     @JoinTable(
             name = "STUDENT_ENROLLMENTS",
@@ -61,5 +64,13 @@ public class Student {
 
     public void setCourses(Set<Course> courses) {
         this.courses = courses;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 }

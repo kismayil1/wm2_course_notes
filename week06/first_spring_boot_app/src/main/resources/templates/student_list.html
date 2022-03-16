@@ -13,6 +13,9 @@
     <tr>
         <th> Firstname</th>
         <th> Lastname</th>
+        <th> School</th>
+        <th> View</th>
+        <th> Edit</th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +25,9 @@
     <tr th:each="student : ${students}">
         <td><span th:text="${student.firstName}"> Name </span></td>
         <td><span th:text="${student.lastName}"> Surname </span></td>
+        <td><span th:text="${student.schoolName}"> School </span></td>
+        <td><a th:href="@{/student/{id}(id=${student.id})}"> View </a></td>
+        <td><a th:href="@{/student/edit/{id}(id=${student.id})}"> Edit </a></td>
     </tr>
     </tbody>
 </table>
