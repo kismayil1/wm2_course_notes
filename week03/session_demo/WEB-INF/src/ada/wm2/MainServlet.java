@@ -38,6 +38,7 @@ public class MainServlet extends HttpServlet{
 		}else{
 			//login failed
 			//redirect to login.html
+			//comment
 			try{
 				res.sendRedirect("index.html");
 			}catch(Exception ex){
@@ -45,5 +46,5 @@ public class MainServlet extends HttpServlet{
 			}
 		}
 	}
-	
+
 }
